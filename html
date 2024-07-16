@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Доступ к камере</title>
+</head>
+<body>
+<h1>Доступ к камере</h1>
+<video id="videoElement" autoplay></video>
+
+<script>
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(function(stream) {
+    var video = document.getElementById('videoElement');
+    video.srcObject = stream;
+    video.play();
+  })
+  .catch(function(err) {
+    console.log('Ошибка: ' + err);
+  });
+</script>
+</body>
+</html>
